@@ -1,0 +1,26 @@
+[project]
+name = "vllm-hidden-states-extractor"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Fynn Schmitt-Ulms", email = "fschmitt@redhat.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "datasets>=4.5.0",
+    "vllm==0.14.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
+
+
+[project.entry-points."vllm.general_plugins"]
+register_hidden_states_extractor = "vllm_hidden_states_extractor:register"
